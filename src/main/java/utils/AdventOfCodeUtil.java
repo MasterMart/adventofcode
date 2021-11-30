@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class AdventOfCodeUtil {
 
-	enum CheckCoordinatesBetweenCoorindatesOptions {
+	public enum CheckCoordinatesBetweenCoorindatesOptions {
 		ABOVE,
 		SAME,
 		BELOW
@@ -31,7 +31,7 @@ public class AdventOfCodeUtil {
 		return Integer.parseInt(resultString.toString());
 	}
 
-	static Integer getSecondNumberOfString(String input) {
+	public static Integer getSecondNumberOfString(String input) {
 		boolean firstNumberFound = false;
 		boolean firstNumberHasBeenFound = false;
 		boolean secondNumberFound = false;
@@ -60,7 +60,7 @@ public class AdventOfCodeUtil {
 		return Integer.parseInt(resultString.toString());
 	}
 
-	static Set<Integer> rangeInts(int startint, int endint, boolean include) {
+	public static Set<Integer> rangeInts(int startint, int endint, boolean include) {
 		Set<Integer> returnList = new HashSet<>();
 
 		if (include) {
@@ -75,9 +75,9 @@ public class AdventOfCodeUtil {
 		return returnList;
 	}
 
-	static class Coordinate implements Comparable<Coordinate> {
-		int x;
-		int y;
+	public static class Coordinate implements Comparable<Coordinate> {
+		public int x;
+		public int y;
 		public Coordinate(int x, int y) {
 			this.x = x;
 			this.y = y;
@@ -115,7 +115,7 @@ public class AdventOfCodeUtil {
 		}
 	}
 
-	static boolean containsCoordinate(Coordinate coordinate, Set<Coordinate> coordinates) {
+	public static boolean containsCoordinate(Coordinate coordinate, Set<Coordinate> coordinates) {
 		return coordinates.contains(coordinate);
 	}
 
@@ -138,17 +138,17 @@ public class AdventOfCodeUtil {
 	 * @param coordinates
 	 * @return
 	 */
-	static Coordinate getLeft(Coordinate coordinate, Set<Coordinate> coordinates) {
+	public static Coordinate getLeft(Coordinate coordinate, Set<Coordinate> coordinates) {
 		Optional<Coordinate> coordinate2 =  coordinates.stream().filter(coordinate1 -> coordinate1.y == coordinate.y && coordinate.x > coordinate1.x).max(Comparator.comparingInt(anInt -> anInt.x));
 		return coordinate2.orElse(null);
 	}
 
-	static Coordinate getRight(Coordinate coordinate, Set<Coordinate> coordinates) {
+	public static Coordinate getRight(Coordinate coordinate, Set<Coordinate> coordinates) {
 		Optional<Coordinate> coordinate2 =  coordinates.stream().filter(coordinate1 -> coordinate1.y == coordinate.y && coordinate.x < coordinate1.x).min(Comparator.comparingInt(anInt -> anInt.x));
 		return coordinate2.orElse(null);
 	}
 
-	static boolean checkCoordinatesBetweenCoordinates(Coordinate coordinate1, Coordinate coordinate2, Set<Coordinate> coordinates, CheckCoordinatesBetweenCoorindatesOptions check) {
+	public static boolean checkCoordinatesBetweenCoordinates(Coordinate coordinate1, Coordinate coordinate2, Set<Coordinate> coordinates, CheckCoordinatesBetweenCoorindatesOptions check) {
 		if (check == CheckCoordinatesBetweenCoorindatesOptions.BELOW) {
 			Set<Integer> xcoordinates = rangeInts(coordinate1.x, coordinate2.x, false);
 			for (int x: xcoordinates) {
@@ -207,7 +207,7 @@ public class AdventOfCodeUtil {
 		return newList;
 	}
 
-	static List<Integer> convertNumberToDigits(int number) {
+	public static List<Integer> convertNumberToDigits(int number) {
 		List<Integer> result = new ArrayList<>();
 		for (char c : String.valueOf(number).toCharArray()) {
 			result.add(Character.getNumericValue(c));
@@ -230,7 +230,7 @@ public class AdventOfCodeUtil {
 	 * @param list
 	 * @return
 	 */
-	static Integer getIndexOfSequence(String sequence, List<Integer> list) {
+	public static Integer getIndexOfSequence(String sequence, List<Integer> list) {
 		int start = 0;
 		List<Integer> checkList = convertNumberStringToDigits(sequence);
 		int end = list.size() - sequence.length();
