@@ -75,6 +75,36 @@ public class AdventOfCodeUtil {
 		return returnList;
 	}
 
+	public static List<Integer> rangeIntsList(int startint, int endint, boolean include) {
+		if (startint < endint) {
+			List<Integer> returnList = new ArrayList<>();
+
+			if (include) {
+				for (int i = startint; i <= endint; i++) {
+					returnList.add(i);
+				}
+				return returnList;
+			}
+			for (int i = startint + 1; i < endint; i++) {
+				returnList.add(i);
+			}
+			return returnList;
+		} else {
+			List<Integer> returnList = new ArrayList<>();
+
+			if (include) {
+				for (int i = startint; i >= endint; i--) {
+					returnList.add(i);
+				}
+				return returnList;
+			}
+			for (int i = startint -1; i > endint; i--) {
+				returnList.add(i);
+			}
+			return returnList;
+		}
+	}
+
 	public static class Coordinate implements Comparable<Coordinate> {
 		public int x;
 		public int y;
@@ -82,6 +112,10 @@ public class AdventOfCodeUtil {
 			this.x = x;
 			this.y = y;
 		}
+
+		public String number;
+		public boolean crossedaway = false;
+
 
 		@Override
 		public boolean equals(Object o) {
