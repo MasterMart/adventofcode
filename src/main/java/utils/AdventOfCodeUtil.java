@@ -304,6 +304,25 @@ public class AdventOfCodeUtil {
 		return null;
 	}
 
+	public static boolean stringContains(String longer, String shorter) {
+		for (char c : shorter.toCharArray()) {
+			if (!longer.contains(Character.toString(c))) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static int stringCountInstances(String longer, String shorter) {
+		int j = 0;
+		for (char c : shorter.toCharArray()) {
+			if (longer.contains(Character.toString(c))) {
+				j++;
+			}
+		}
+		return j;
+	}
+
 	static class DetermineTextBetBracketsHelper {
 		int index;
 		String bracket;

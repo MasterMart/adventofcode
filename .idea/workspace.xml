@@ -3,13 +3,21 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed2c83ec-1c0b-4063-a27d-5f77b48b55ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/adventofcode_2018/AdventOfCode_2018_16.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/AdventOfCodeUtil.java" afterDir="false" />
+    <list default="true" id="ed2c83ec-1c0b-4063-a27d-5f77b48b55ef" name="Default Changelist" comment="Map ipv list">
+      <change afterPath="$PROJECT_DIR$/src/main/java/adventofcode_2021/AdventOfCode_2021_07.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/adventofcode_2021/AdventOfCode_2021_08.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/AdventOfCodeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/AdventOfCodeUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,21 +43,34 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="adventofcode_2021" />
       <recent name="" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/adventofcode_2020" />
+      <recent name="$PROJECT_DIR$/src/main/java/adventofcode_2019" />
+      <recent name="$PROJECT_DIR$/src/main/java/adventofcode_2018" />
+    </key>
   </component>
-  <component name="RunManager">
-    <configuration name="AdventOfCode_2018_16" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="adventofcode_2018.AdventOfCode_2018_16" />
+  <component name="RunManager" selected="Application.AdventOfCode_2021_08">
+    <configuration name="AdventOfCode_2021_04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="adventofcode_2021.AdventOfCode_2021_04" />
       <module name="adventofcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="adventofcode_2018.*" />
+          <option name="PATTERN" value="adventofcode_2021.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -57,20 +78,78 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration name="AdventOfCode_2021_05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="adventofcode_2021.AdventOfCode_2021_05" />
+      <module name="adventofcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="adventofcode_2021.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdventOfCode_2021_06" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="adventofcode_2021.AdventOfCode_2021_06" />
+      <module name="adventofcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="adventofcode_2021.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdventOfCode_2021_07" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="adventofcode_2021.AdventOfCode_2021_07" />
+      <module name="adventofcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="adventofcode_2021.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdventOfCode_2021_08" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="adventofcode_2021.AdventOfCode_2021_08" />
+      <module name="adventofcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="adventofcode_2021.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AdventOfCode_2018_16" />
+        <item itemvalue="Application.AdventOfCode_2021_08" />
+        <item itemvalue="Application.AdventOfCode_2021_07" />
+        <item itemvalue="Application.AdventOfCode_2021_06" />
+        <item itemvalue="Application.AdventOfCode_2021_05" />
+        <item itemvalue="Application.AdventOfCode_2021_04" />
       </list>
     </recent_temporary>
   </component>
@@ -82,8 +161,68 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1638307267593</updated>
-      <workItem from="1638307268817" duration="389000" />
+      <workItem from="1638307268817" duration="13731000" />
+      <workItem from="1638532861048" duration="7111000" />
+      <workItem from="1638766814782" duration="3969000" />
+      <workItem from="1638778747857" duration="6800000" />
     </task>
+    <task id="LOCAL-00001" summary="AOC 2018 16">
+      <created>1638307729828</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638307729828</updated>
+    </task>
+    <task id="LOCAL-00002" summary="AOC 2018">
+      <created>1638308436091</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1638308436091</updated>
+    </task>
+    <task id="LOCAL-00003" summary="AOC 2019 01">
+      <created>1638336830604</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1638336830604</updated>
+    </task>
+    <task id="LOCAL-00004" summary="AOC restjes">
+      <created>1638371522130</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1638371522130</updated>
+    </task>
+    <task id="LOCAL-00005" summary="AOC 2021 dag 2">
+      <created>1638424212828</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1638424212828</updated>
+    </task>
+    <task id="LOCAL-00006" summary="AOC 2021 dag 3">
+      <created>1638511701705</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1638511701705</updated>
+    </task>
+    <task id="LOCAL-00007" summary="AOC 2021 dag 6">
+      <created>1638769001710</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1638769001710</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Map ipv list">
+      <created>1638773569413</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1638773569413</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,5 +238,156 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="AOC 2018 16" />
+    <MESSAGE value="AOC 2018" />
+    <MESSAGE value="AOC 2019 01" />
+    <MESSAGE value="AOC restjes" />
+    <MESSAGE value="AOC 2021 dag 2" />
+    <MESSAGE value="AOC 2021 dag 3" />
+    <MESSAGE value="AOC 2021 dag 6" />
+    <MESSAGE value="Map ipv list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Map ipv list" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="789" y="265" width="474" height="740" key="#xdebugger.evaluate" timestamp="1638940412478">
+      <screen x="0" y="23" width="1680" height="982" />
+    </state>
+    <state x="616" y="240" key="#xdebugger.evaluate/0.23.1680.977@0.23.1680.977" timestamp="1638681400790" />
+    <state x="789" y="265" width="474" height="740" key="#xdebugger.evaluate/0.23.1680.982@0.23.1680.982" timestamp="1638940412478" />
+    <state width="475" height="469" key="DebuggerActiveHint" timestamp="1638942340891">
+      <screen x="0" y="23" width="1680" height="982" />
+    </state>
+    <state width="475" height="466" key="DebuggerActiveHint/0.23.1680.977@0.23.1680.977" timestamp="1638853761306" />
+    <state width="475" height="469" key="DebuggerActiveHint/0.23.1680.982@0.23.1680.982" timestamp="1638942340891" />
+    <state width="879" height="653" key="DebuggerActiveHint/0.23.3440.1367@0.23.3440.1367" timestamp="1638768678694" />
+    <state width="1243" height="336" key="GridCell.Tab.0.bottom" timestamp="1638943259112">
+      <screen x="0" y="23" width="1680" height="982" />
+    </state>
+    <state width="1243" height="265" key="GridCell.Tab.0.bottom/0.23.1680.977@0.23.1680.977" timestamp="1638854383921" />
+    <state width="1243" height="258" key="GridCell.Tab.0.bottom/0.23.1680.978@0.23.1680.978" timestamp="1638307731973" />
+    <state width="1243" height="263" key="GridCell.Tab.0.bottom/0.23.1680.981@0.23.1680.981" timestamp="1638368970064" />
+    <state width="1243" height="336" key="GridCell.Tab.0.bottom/0.23.1680.982@0.23.1680.982" timestamp="1638943259112" />
+    <state width="1243" height="263" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1638424214989" />
+    <state width="1243" height="263" key="GridCell.Tab.0.bottom/0.23.1680.984@0.23.1680.984" timestamp="1638371225761" />
+    <state width="1243" height="265" key="GridCell.Tab.0.bottom/0.23.3440.1367@0.23.3440.1367" timestamp="1638773570645" />
+    <state width="1243" height="336" key="GridCell.Tab.0.center" timestamp="1638943259111">
+      <screen x="0" y="23" width="1680" height="982" />
+    </state>
+    <state width="1243" height="265" key="GridCell.Tab.0.center/0.23.1680.977@0.23.1680.977" timestamp="1638854383920" />
+    <state width="1243" height="258" key="GridCell.Tab.0.center/0.23.1680.978@0.23.1680.978" timestamp="1638307731972" />
+    <state width="1243" height="263" key="GridCell.Tab.0.center/0.23.1680.981@0.23.1680.981" timestamp="1638368970063" />
+    <state width="1243" height="336" key="GridCell.Tab.0.center/0.23.1680.982@0.23.1680.982" timestamp="1638943259111" />
+    <state width="1243" height="263" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1638424214988" />
+    <state width="1243" height="263" key="GridCell.Tab.0.center/0.23.1680.984@0.23.1680.984" timestamp="1638371225760" />
+    <state width="1243" height="265" key="GridCell.Tab.0.center/0.23.3440.1367@0.23.3440.1367" timestamp="1638773570644" />
+    <state width="1243" height="336" key="GridCell.Tab.0.left" timestamp="1638943259111">
+      <screen x="0" y="23" width="1680" height="982" />
+    </state>
+    <state width="1243" height="265" key="GridCell.Tab.0.left/0.23.1680.977@0.23.1680.977" timestamp="1638854383920" />
+    <state width="1243" height="258" key="GridCell.Tab.0.left/0.23.1680.978@0.23.1680.978" timestamp="1638307731972" />
+    <state width="1243" height="263" key="GridCell.Tab.0.left/0.23.1680.981@0.23.1680.981" timestamp="1638368970062" />
+    <state width="1243" height="336" key="GridCell.Tab.0.left/0.23.1680.982@0.23.1680.982" timestamp="1638943259111" />
+    <state width="1243" height="263" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1638424214988" />
+    <state width="1243" height="263" key="GridCell.Tab.0.left/0.23.1680.984@0.23.1680.984" timestamp="1638371225760" />
+    <state width="1243" height="265" key="GridCell.Tab.0.left/0.23.3440.1367@0.23.3440.1367" timestamp="1638773570644" />
+    <state width="1243" height="336" key="GridCell.Tab.0.right" timestamp="1638943259111">
+      <screen x="0" y="23" width="1680" height="982" />
+    </state>
+    <state width="1243" height="265" key="GridCell.Tab.0.right/0.23.1680.977@0.23.1680.977" timestamp="1638854383921" />
+    <state width="1243" height="258" key="GridCell.Tab.0.right/0.23.1680.978@0.23.1680.978" timestamp="1638307731972" />
+    <state width="1243" height="263" key="GridCell.Tab.0.right/0.23.1680.981@0.23.1680.981" timestamp="1638368970063" />
+    <state width="1243" height="336" key="GridCell.Tab.0.right/0.23.1680.982@0.23.1680.982" timestamp="1638943259111" />
+    <state width="1243" height="263" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1638424214989" />
+    <state width="1243" height="263" key="GridCell.Tab.0.right/0.23.1680.984@0.23.1680.984" timestamp="1638371225761" />
+    <state width="1243" height="265" key="GridCell.Tab.0.right/0.23.3440.1367@0.23.3440.1367" timestamp="1638773570645" />
+    <state width="1243" height="336" key="GridCell.Tab.1.bottom" timestamp="1638943247942">
+      <screen x="0" y="23" width="1680" height="982" />
+    </state>
+    <state width="1243" height="327" key="GridCell.Tab.1.bottom/0.23.1680.977@0.23.1680.977" timestamp="1638854368965" />
+    <state width="1243" height="336" key="GridCell.Tab.1.bottom/0.23.1680.982@0.23.1680.982" timestamp="1638943247942" />
+    <state width="1243" height="327" key="GridCell.Tab.1.bottom/0.23.3440.1367@0.23.3440.1367" timestamp="1638768704978" />
+    <state width="1243" height="336" key="GridCell.Tab.1.center" timestamp="1638943247942">
+      <screen x="0" y="23" width="1680" height="982" />
+    </state>
+    <state width="1243" height="327" key="GridCell.Tab.1.center/0.23.1680.977@0.23.1680.977" timestamp="1638854368964" />
+    <state width="1243" height="336" key="GridCell.Tab.1.center/0.23.1680.982@0.23.1680.982" timestamp="1638943247942" />
+    <state width="1243" height="327" key="GridCell.Tab.1.center/0.23.3440.1367@0.23.3440.1367" timestamp="1638768704978" />
+    <state width="1243" height="336" key="GridCell.Tab.1.left" timestamp="1638943247941">
+      <screen x="0" y="23" width="1680" height="982" />
+    </state>
+    <state width="1243" height="327" key="GridCell.Tab.1.left/0.23.1680.977@0.23.1680.977" timestamp="1638854368964" />
+    <state width="1243" height="336" key="GridCell.Tab.1.left/0.23.1680.982@0.23.1680.982" timestamp="1638943247941" />
+    <state width="1243" height="327" key="GridCell.Tab.1.left/0.23.3440.1367@0.23.3440.1367" timestamp="1638768704977" />
+    <state width="1243" height="336" key="GridCell.Tab.1.right" timestamp="1638943247942">
+      <screen x="0" y="23" width="1680" height="982" />
+    </state>
+    <state width="1243" height="327" key="GridCell.Tab.1.right/0.23.1680.977@0.23.1680.977" timestamp="1638854368964" />
+    <state width="1243" height="336" key="GridCell.Tab.1.right/0.23.1680.982@0.23.1680.982" timestamp="1638943247942" />
+    <state width="1243" height="327" key="GridCell.Tab.1.right/0.23.3440.1367@0.23.3440.1367" timestamp="1638768704978" />
+    <state x="1979" y="133" width="1085" height="777" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1638774238218">
+      <screen x="0" y="23" width="3440" height="1367" />
+    </state>
+    <state x="1979" y="133" width="1085" height="777" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.3440.1367@0.23.3440.1367" timestamp="1638774238218" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/adventofcode_2018/AdventOfCode_2018_16.java</url>
+          <line>4214</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/adventofcode_2021/AdventOfCode_2021_01.java</url>
+          <line>2040</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/adventofcode_2021/AdventOfCode_2021_01.java</url>
+          <line>2020</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/adventofcode_2021/AdventOfCode_2021_03.java</url>
+          <line>1076</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/adventofcode_2021/AdventOfCode_2021_05.java</url>
+          <line>580</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/utils/AdventOfCodeUtil.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/adventofcode_2021/AdventOfCode_2021_06.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/adventofcode_2021/AdventOfCode_2021_07.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/adventofcode_2021/AdventOfCode_2021_07.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/adventofcode_2021/AdventOfCode_2021_08.java</url>
+          <line>266</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
