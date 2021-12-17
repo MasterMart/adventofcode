@@ -114,7 +114,11 @@ public class AdventOfCodeUtil {
 		}
 
 		public String number;
+		public int numberint;
+		public Integer tentdist = null;
+		public boolean visited = false;
 		public boolean crossedaway = false;
+		public boolean hasFlashed = false;
 
 
 		@Override
@@ -153,17 +157,59 @@ public class AdventOfCodeUtil {
 		return coordinates.contains(coordinate);
 	}
 
-	static Set<Coordinate> getAdjacent(Coordinate coordinate, Set<Coordinate> coordinates) {
+	public static Set<Coordinate> getAdjacent(Coordinate coordinate, Set<Coordinate> coordinates) {
 		return coordinates.stream().filter(coordinate1 ->
 				coordinate1.y - 1 == coordinate.y && coordinate1.x - 1 == coordinate.x
-				|| coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
-				|| coordinate1.y - 1 == coordinate.y && coordinate1.x + 1 == coordinate.x
-				|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
-				|| coordinate1.y == coordinate.y && coordinate1.x + 1 == coordinate.x
-				|| coordinate1.y + 1 == coordinate.y && coordinate1.x - 1 == coordinate.x
-				|| coordinate1.y + 1 == coordinate.y && coordinate1.x == coordinate.x
-				|| coordinate1.y + 1 == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y - 1 == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x + 1 == coordinate.x
 		).collect(Collectors.toSet());
+	}
+
+	public static Set<Coordinate> getAdjacentHigher(Coordinate coordinate, List<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate1 ->
+				coordinate1.y - 1 == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y - 1 == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x - 1 == coordinate.x
+		).collect(Collectors.toSet());
+	}
+
+
+	public static List<Coordinate> getAdjacentNoVert(Coordinate coordinate, Set<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate1 ->
+						coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x == coordinate.x
+		).collect(Collectors.toList());
+	}
+
+	public static Set<Coordinate> getAdjacentNoVertHigher(Coordinate coordinate, Set<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate1 ->
+				coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
+
+		).collect(Collectors.toSet());
+	}
+
+	public static List<Coordinate> getAdjacentNoVertNo9(Coordinate coordinate, List<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate1 ->
+				!coordinate1.number.equals("9") && (
+				coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x == coordinate.x)
+		).collect(Collectors.toList());
+	}
+
+	public static Coordinate getCoordinate(int x, int y, Set<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate -> coordinate.x == x && coordinate.y == y).findFirst().get();
 	}
 
 	/**
@@ -177,8 +223,23 @@ public class AdventOfCodeUtil {
 		return coordinate2.orElse(null);
 	}
 
-	public static Coordinate getRight(Coordinate coordinate, Set<Coordinate> coordinates) {
-		Optional<Coordinate> coordinate2 =  coordinates.stream().filter(coordinate1 -> coordinate1.y == coordinate.y && coordinate.x < coordinate1.x).min(Comparator.comparingInt(anInt -> anInt.x));
+	public static Coordinate getUp1(Coordinate coordinate, Set<Coordinate> coordinates) {
+		Optional<Coordinate> coordinate2 =  coordinates.stream().filter(coordinate1 -> coordinate1.y + 1 == coordinate.y && coordinate.x == coordinate1.x).findFirst();
+		return coordinate2.orElse(null);
+	}
+
+	public static Coordinate getUpLeft1(Coordinate coordinate, Set<Coordinate> coordinates) {
+		Optional<Coordinate> coordinate2 =  coordinates.stream().filter(coordinate1 -> coordinate1.y + 1 == coordinate.y && coordinate.x == coordinate1.x + 1).findFirst();
+		return coordinate2.orElse(null);
+	}
+
+	public static Coordinate getLeft1(Coordinate coordinate, Set<Coordinate> coordinates) {
+		Optional<Coordinate> coordinate2 =  coordinates.stream().filter(coordinate1 -> coordinate1.y == coordinate.y && coordinate.x == coordinate1.x + 1).findFirst();
+		return coordinate2.orElse(null);
+	}
+
+	public static Coordinate getRight(Coordinate coordinate, List<Coordinate> coordinates) {
+		Optional<Coordinate> coordinate2 =  coordinates.stream().filter(coordinate1 -> coordinate1.y == coordinate.y && coordinate.x < coordinate1.x).findFirst();
 		return coordinate2.orElse(null);
 	}
 

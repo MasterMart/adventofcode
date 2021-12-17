@@ -219,7 +219,7 @@ public class AdventOfCode_2021_09 {
 	}
 
 	public static class Basin {
-		public List<AdventOfCodeUtil.Coordinate> coordinates = new ArrayList<>();
+		public Set<AdventOfCodeUtil.Coordinate> coordinates = new HashSet<>();
 	}
 
 	public static Basin checkRight(List<Basin> basins, AdventOfCodeUtil.Coordinate coordinate, List<AdventOfCodeUtil.Coordinate> coordinates) {
