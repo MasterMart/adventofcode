@@ -11,6 +11,26 @@ public class AdventOfCodeUtil {
 		BELOW
 	}
 
+	public static Integer getLastNumberOfString(String input) {
+		boolean numberfound = false;
+		StringBuilder resultString = new StringBuilder();
+		for (int i = input.length() - 1; i >= 0; i--) {
+			char c = input.charAt(i);
+			if (Character.isDigit(c)) {
+				numberfound = true;
+				resultString.insert(0, c);
+			} else {
+				if (numberfound) {
+					return Integer.parseInt(resultString.toString());
+				}
+			}
+		}
+		if (resultString.toString().isEmpty()) {
+			return null;
+		}
+		return Integer.parseInt(resultString.toString());
+	}
+
 	public static Integer getFirstNumberOfString(String input) {
 		boolean numberfound = false;
 		StringBuilder resultString = new StringBuilder();
@@ -387,6 +407,22 @@ public class AdventOfCodeUtil {
 	static class DetermineTextBetBracketsHelper {
 		int index;
 		String bracket;
+	}
+
+	public static boolean isNumeric(String strNum) {
+		if (strNum == null) {
+			return false;
+		}
+		try {
+			double d = Double.parseDouble(strNum);
+		} catch (NumberFormatException nfe) {
+			return false;
+		}
+		return true;
+	}
+
+	public static long roundUp(long num, long divisor) {
+		return (num + divisor - 1) / divisor;
 	}
 
 }
