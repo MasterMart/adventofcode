@@ -51,6 +51,26 @@ public class AdventOfCodeUtil {
 		return Integer.parseInt(resultString.toString());
 	}
 
+	public static Long getFirstNumberOfStringL(String input) {
+		boolean numberfound = false;
+		StringBuilder resultString = new StringBuilder();
+		for (int i = 0; i < input.length(); i++) {
+			char c = input.charAt(i);
+			if (Character.isDigit(c)) {
+				numberfound = true;
+				resultString.append(c);
+			} else {
+				if (numberfound) {
+					return Long.parseLong(resultString.toString());
+				}
+			}
+		}
+		if (resultString.toString().isEmpty()) {
+			return null;
+		}
+		return Long.parseLong(resultString.toString());
+	}
+
 	public static Integer getSecondNumberOfString(String input) {
 		boolean firstNumberFound = false;
 		boolean firstNumberHasBeenFound = false;
@@ -82,6 +102,11 @@ public class AdventOfCodeUtil {
 
 	public static Set<Integer> rangeInts(int startint, int endint, boolean include) {
 		Set<Integer> returnList = new HashSet<>();
+		if (endint < startint) {
+			int startinttemp = startint;
+			startint = endint;
+			endint = startinttemp;
+		}
 
 		if (include) {
 			for (int i = startint; i <= endint; i++) {
@@ -128,10 +153,24 @@ public class AdventOfCodeUtil {
 	public static class Coordinate implements Comparable<Coordinate> {
 		public int x;
 		public int y;
+
+		public int length;
 		public Coordinate(int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
+
+		public Coordinate(int x, int y, boolean isRock, boolean isSand) {
+			this.x = x;
+			this.y = y;
+			this.isRock = isRock;
+			this.isSand = isSand;
+		}
+
+		public boolean isRock;
+		public boolean isSand;
+
+
 
 		public String number;
 		public int numberint;
@@ -177,6 +216,10 @@ public class AdventOfCodeUtil {
 		return coordinates.contains(coordinate);
 	}
 
+	public static boolean containsCoordinate(Coordinate coordinate, List<Coordinate> coordinates) {
+		return coordinates.contains(coordinate);
+	}
+
 	public static Set<Coordinate> getAdjacent(Coordinate coordinate, Set<Coordinate> coordinates) {
 		return coordinates.stream().filter(coordinate1 ->
 				coordinate1.y - 1 == coordinate.y && coordinate1.x - 1 == coordinate.x
@@ -188,6 +231,66 @@ public class AdventOfCodeUtil {
 						|| coordinate1.y + 1 == coordinate.y && coordinate1.x == coordinate.x
 						|| coordinate1.y + 1 == coordinate.y && coordinate1.x + 1 == coordinate.x
 		).collect(Collectors.toSet());
+	}
+
+	public static List<Coordinate> getAdjacent(Coordinate coordinate, List<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate1 ->
+				coordinate1.y - 1 == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y - 1 == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x + 1 == coordinate.x
+		).collect(Collectors.toList());
+	}
+
+	public static List<Coordinate> getAdjacentEmpty(Coordinate coordinate, List<Coordinate> coordinates) {
+		List<Coordinate> coordinates1 =  coordinates.stream().filter(coordinate1 ->
+				coordinate1.y - 1 == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y - 1 == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x== coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x + 1 == coordinate.x
+		).collect(Collectors.toList());
+
+		List<Coordinate> empty = new ArrayList<>();
+		if (coordinates1.stream().noneMatch(coordinate1 -> coordinate1.x == coordinate.x && coordinate1.y == coordinate.y)) {
+			empty.add(new Coordinate(coordinate.x, coordinate.y));
+		}
+//		if (coordinates1.stream().noneMatch(coordinate1 -> coordinate1.x == coordinate.x - 1  && coordinate1.y == coordinate.y - 1 )) {
+//			empty.add(new Coordinate(coordinate.x - 1, coordinate.y - 1));
+//		}
+		if (coordinates1.stream().noneMatch(coordinate1 -> coordinate1.x== coordinate.x - 1  && coordinate1.y == coordinate.y)) {
+			empty.add(new Coordinate(coordinate.x - 1, coordinate.y));
+		}
+//		if (coordinates1.stream().noneMatch(coordinate1 -> coordinate1.x== coordinate.x - 1  && coordinate1.y== coordinate.y + 1 )) {
+//			empty.add(new Coordinate(coordinate.x - 1, coordinate.y + 1));
+//		}
+
+		if (coordinates1.stream().noneMatch(coordinate1 -> coordinate1.x == coordinate.x && coordinate1.y== coordinate.y - 1 )) {
+			empty.add(new Coordinate(coordinate.x, coordinate.y - 1));
+		}
+		if (coordinates1.stream().noneMatch(coordinate1 -> coordinate1.x == coordinate.x && coordinate1.y == coordinate.y + 1)) {
+			empty.add(new Coordinate(coordinate.x, coordinate.y + 1));
+		}
+
+//		if (coordinates1.stream().noneMatch(coordinate1 -> coordinate1.x == coordinate.x + 1 && coordinate1.y == coordinate.y - 1)) {
+//			empty.add(new Coordinate(coordinate.x + 1, coordinate.y - 1));
+//		}
+		if (coordinates1.stream().noneMatch(coordinate1 -> coordinate1.x== coordinate.x + 1  && coordinate1.y == coordinate.y)) {
+			empty.add(new Coordinate(coordinate.x + 1, coordinate.y));
+		}
+//		if (coordinates1.stream().noneMatch(coordinate1 -> coordinate1.x == coordinate.x + 1 && coordinate1.y== coordinate.y + 1 )) {
+//			empty.add(new Coordinate(coordinate.x + 1, coordinate.y + 1));
+//		}
+		return empty.stream().filter(coordinate1 -> coordinate1.y >= 0).collect(Collectors.toList());
+
 	}
 
 	public static Set<Coordinate> getAdjacentHigher(Coordinate coordinate, List<Coordinate> coordinates) {
@@ -210,6 +313,70 @@ public class AdventOfCodeUtil {
 		).collect(Collectors.toList());
 	}
 
+	public static List<Coordinate> getAdjacentNoVert(Coordinate coordinate, List<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate1 ->
+				coordinate.number.equals(".") &&
+						(coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x + 1 == coordinate.x
+						|| coordinate1.y == coordinate.y && coordinate1.x == coordinate.x
+						|| coordinate1.y + 1 == coordinate.y && coordinate1.x == coordinate.x)
+		).collect(Collectors.toList());
+	}
+
+	public static List<Coordinate> getAdjacentNoVertNoStrHigher(Coordinate coordinate, Set<Coordinate> coordinates) {
+
+		if (coordinate == null) {
+			System.out.println(coordinate.x);
+			return new ArrayList<>();
+		}
+
+		if (coordinate.number.equals("S") || coordinate.number.equals("E")) {
+
+			return coordinates.stream().filter(coordinate1 ->
+					coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
+							|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
+							|| coordinate1.y == coordinate.y && coordinate1.x + 1 == coordinate.x
+							|| coordinate1.y + 1 == coordinate.y && coordinate1.x == coordinate.x
+			).collect(Collectors.toList());
+		} else {
+
+			return coordinates.stream().filter(coordinate1 ->
+					(coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
+							|| coordinate1.y == coordinate.y && coordinate1.x - 1 == coordinate.x
+							|| coordinate1.y == coordinate.y && coordinate1.x + 1 == coordinate.x
+							|| coordinate1.y + 1 == coordinate.y && coordinate1.x == coordinate.x)
+					&& (Character.valueOf(coordinate.number.charAt(0)).compareTo(Character.valueOf(coordinate1.number.charAt(0))) > -2))
+			.collect(Collectors.toList());
+
+
+		}
+	}
+
+	public static List<Coordinate> horLineHigher(Coordinate coordinate, List<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate1 ->
+				coordinate1.y > coordinate.y && coordinate1.x == coordinate.x
+		).collect(Collectors.toList());
+	}
+
+	public static List<Coordinate> horLineLower(Coordinate coordinate, List<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate1 ->
+				coordinate1.y < coordinate.y && coordinate1.x == coordinate.x
+		).collect(Collectors.toList());
+	}
+
+	public static List<Coordinate> vertLineHigher(Coordinate coordinate, List<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate1 ->
+				coordinate1.y == coordinate.y && coordinate1.x > coordinate.x
+		).collect(Collectors.toList());
+	}
+
+	public static List<Coordinate> vertLineLower(Coordinate coordinate, List<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate1 ->
+				coordinate1.y == coordinate.y && coordinate1.x < coordinate.x
+		).collect(Collectors.toList());
+	}
+
 	public static Set<Coordinate> getAdjacentNoVertHigher(Coordinate coordinate, Set<Coordinate> coordinates) {
 		return coordinates.stream().filter(coordinate1 ->
 				coordinate1.y - 1 == coordinate.y && coordinate1.x == coordinate.x
@@ -229,6 +396,10 @@ public class AdventOfCodeUtil {
 	}
 
 	public static Coordinate getCoordinate(int x, int y, Set<Coordinate> coordinates) {
+		return coordinates.stream().filter(coordinate -> coordinate.x == x && coordinate.y == y).findFirst().get();
+	}
+
+	public static Coordinate getCoordinate(int x, int y, List<Coordinate> coordinates) {
 		return coordinates.stream().filter(coordinate -> coordinate.x == x && coordinate.y == y).findFirst().get();
 	}
 
@@ -365,7 +536,7 @@ public class AdventOfCodeUtil {
 		List<DetermineTextBetBracketsHelper> list = new ArrayList<>();
 		for (int i =indexOfBracket; i < input.length(); i++) {
 			String s = Character.toString(input.charAt(i));
-			if (s.equals("(") || s.equals(")")) {
+			if (s.equals("[") || s.equals("]")) {
 				DetermineTextBetBracketsHelper determineTextBetBracketsHelper = new DetermineTextBetBracketsHelper();
 				determineTextBetBracketsHelper.index = i;
 				determineTextBetBracketsHelper.bracket = s;
@@ -374,9 +545,9 @@ public class AdventOfCodeUtil {
 		}
 		int counter = 0;
 		for (DetermineTextBetBracketsHelper det: list) {
-			if (det.bracket.equals("(")) {
+			if (det.bracket.equals("[")) {
 				counter +=1;
-			} else if (det.bracket.equals(")") && counter == 1) {
+			} else if (det.bracket.equals("]") && counter == 1) {
 				return input.substring(indexOfBracket + 1, det.index);
 			} else {
 				counter-=1;
