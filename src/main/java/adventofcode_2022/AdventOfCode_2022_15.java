@@ -46,10 +46,10 @@ public class AdventOfCode_2022_15 {
 			"Sensor at x=1663350, y=1595182: closest beacon is at x=1571469, y=3023534\n" +
 			"Sensor at x=3311582, y=3386773: closest beacon is at x=3309042, y=3583067";
 
-	public static void main(String... args) {
+	public static void main(String... args) throws Exception {
 		int total = 0;
 
-		Set<AdventOfCodeUtil.Coordinate> beacons = new HashSet<>();
+		Set<AdventOfCodeUtil.Coordinate> sensors = new HashSet<>();
 
 
 		List<List<AdventOfCodeUtil.Coordinate>> coordinates = new ArrayList<>();
@@ -61,28 +61,163 @@ public class AdventOfCode_2022_15 {
 			String closestbeaconstring = ii.split(" closest beacon is at ")[1];
 			AdventOfCodeUtil.Coordinate sensor = new AdventOfCodeUtil.Coordinate(Integer.parseInt(sensorstring.split(",")[0].split("x=")[1]), Integer.parseInt(sensorstring.split(",")[1].split("y=")[1]));
 			AdventOfCodeUtil.Coordinate beacon = new AdventOfCodeUtil.Coordinate(Integer.parseInt(closestbeaconstring.split(",")[0].split("x=")[1]), Integer.parseInt(closestbeaconstring.split(",")[1].split("y=")[1]));
-			beacons.add(beacon);
 			int dist = Math.abs(sensor.x - beacon.x) + Math.abs(sensor.y - beacon.y);
+			sensor.length = dist;
+			sensors.add(sensor);
 			coordinates.add(calclosest(sensor, dist));
 		}
 
 		for (List<AdventOfCodeUtil.Coordinate> coordinateList: coordinates) {
-			List<AdventOfCodeUtil.Coordinate> sublist = coordinateList.stream().filter(coordinate -> coordinate.y == 2000000).collect(Collectors.toList());
-			if (!sublist.isEmpty()) {
-				if (sublist.size() == 1) {
-					cantbe.add(sublist.get(0));
-				} else {
-					int smallest = Math.min(sublist.get(0).x, sublist.get(1).x);
-					for (int i = 0; i <= Math.abs(sublist.get(1).x - sublist.get(0).x); i++) {
-						AdventOfCodeUtil.Coordinate coordinate = new AdventOfCodeUtil.Coordinate(i + smallest, sublist.get(0).y);
-						cantbe.add(coordinate);
+			if (!coordinateList.isEmpty()) {
+				for (AdventOfCodeUtil.Coordinate coordinate: coordinateList) {
+
+					if (coordinate.number.equals("leftup")) {
+						AdventOfCodeUtil.Coordinate coordinate1 = new AdventOfCodeUtil.Coordinate(coordinate.x - 1, coordinate.y);
+						if (coordinate1.x >= 0 && coordinate1.x <= 4000000 && coordinate1.y >= 0 && coordinate1.y <= 4000000) {
+							boolean found = false;
+							for (AdventOfCodeUtil.Coordinate beacon : sensors) {
+								int distbeacon = beacon.length;
+								int dist = Math.abs((coordinate1.x) - beacon.x) + Math.abs((coordinate1.y) - beacon.y);
+								if (dist <= distbeacon) {
+									found = true;
+									break;
+								}
+							}
+							if (!found) {
+								long test = ((long)coordinate1.x * 4000000) + coordinate1.y;
+								System.out.println(test);
+								throw new Exception();
+							}
+						}
+
+						AdventOfCodeUtil.Coordinate coordinate2 = new AdventOfCodeUtil.Coordinate(coordinate.x, coordinate.y + 1);
+						if (coordinate2.x >= 0 && coordinate2.x <= 4000000 && coordinate2.y >= 0 && coordinate2.y <= 4000000) {
+							boolean found2 = false;
+							for (AdventOfCodeUtil.Coordinate beacon : sensors) {
+								int distbeacon = beacon.length;
+								int dist = Math.abs((coordinate2.x) - beacon.x) + Math.abs((coordinate2.y) - beacon.y);
+								if (dist <= distbeacon) {
+									found2 = true;
+									break;
+								}
+							}
+							if (!found2) {
+								System.out.println((coordinate2.x * 4000000) + coordinate2.y);
+								throw new Exception();
+							}
+						}
+					}
+
+					if (coordinate.number.equals("rightdown")) {
+						AdventOfCodeUtil.Coordinate coordinate1 = new AdventOfCodeUtil.Coordinate(coordinate.x + 1, coordinate.y);
+						if (coordinate1.x >= 0 && coordinate1.x <= 4000000 && coordinate1.y >= 0 && coordinate1.y <= 4000000) {
+							boolean found = false;
+							for (AdventOfCodeUtil.Coordinate beacon : sensors) {
+								int distbeacon = beacon.length;
+								int dist = Math.abs((coordinate1.x) - beacon.x) + Math.abs((coordinate1.y) - beacon.y);
+								if (dist <= distbeacon) {
+									found = true;
+									break;
+								}
+							}
+							if (!found) {
+								System.out.println((coordinate1.x * 4000000) + coordinate1.y);
+								throw new Exception();
+							}
+						}
+
+						AdventOfCodeUtil.Coordinate coordinate2 = new AdventOfCodeUtil.Coordinate(coordinate.x, coordinate.y - 1);
+						if (coordinate2.x >= 0 && coordinate2.x <= 4000000 && coordinate2.y >= 0 && coordinate2.y <= 4000000) {
+							boolean found2 = false;
+							for (AdventOfCodeUtil.Coordinate beacon : sensors) {
+								int distbeacon = beacon.length;
+								int dist = Math.abs((coordinate2.x) - beacon.x) + Math.abs((coordinate2.y) - beacon.y);
+								if (dist <= distbeacon) {
+									found2 = true;
+									break;
+								}
+							}
+							if (!found2) {
+								System.out.println((coordinate2.x * 4000000) + coordinate2.y);
+								throw new Exception();
+							}
+						}
+					}
+
+					if (coordinate.number.equals("leftdown")) {
+						AdventOfCodeUtil.Coordinate coordinate1 = new AdventOfCodeUtil.Coordinate(coordinate.x - 1, coordinate.y);
+						if (coordinate1.x >= 0 && coordinate1.x <= 4000000 && coordinate1.y >= 0 && coordinate1.y <= 4000000) {
+							boolean found = false;
+							for (AdventOfCodeUtil.Coordinate beacon : sensors) {
+								int distbeacon = beacon.length;
+								int dist = Math.abs((coordinate1.x) - beacon.x) + Math.abs((coordinate1.y) - beacon.y);
+								if (dist <= distbeacon) {
+									found = true;
+									break;
+								}
+							}
+							if (!found) {
+								System.out.println((coordinate1.x * 4000000) + coordinate1.y);
+								throw new Exception();
+							}
+						}
+
+						AdventOfCodeUtil.Coordinate coordinate2 = new AdventOfCodeUtil.Coordinate(coordinate.x, coordinate.y - 1);
+						if (coordinate2.x >= 0 && coordinate2.x <= 4000000 && coordinate2.y >= 0 && coordinate2.y <= 4000000) {
+							boolean found2 = false;
+							for (AdventOfCodeUtil.Coordinate beacon : sensors) {
+								int distbeacon = beacon.length;
+								int dist = Math.abs((coordinate2.x) - beacon.x) + Math.abs((coordinate2.y) - beacon.y);
+								if (dist <= distbeacon) {
+									found2 = true;
+									break;
+								}
+							}
+							if (!found2) {
+								System.out.println((coordinate2.x * 4000000) + coordinate2.y);
+								throw new Exception();
+							}
+						}
+					}
+
+					if (coordinate.number.equals("rightup")) {
+						AdventOfCodeUtil.Coordinate coordinate1 = new AdventOfCodeUtil.Coordinate(coordinate.x + 1, coordinate.y);
+						if (coordinate1.x >= 0 && coordinate1.x <= 4000000 && coordinate1.y >= 0 && coordinate1.y <= 4000000) {
+							boolean found = false;
+							for (AdventOfCodeUtil.Coordinate beacon : sensors) {
+								int distbeacon = beacon.length;
+								int dist = Math.abs((coordinate1.x) - beacon.x) + Math.abs((coordinate1.y) - beacon.y);
+								if (dist <= distbeacon) {
+									found = true;
+									break;
+								}
+							}
+							if (!found) {
+								System.out.println((coordinate1.x * 4000000) + coordinate1.y);
+								throw new Exception();
+							}
+						}
+
+						AdventOfCodeUtil.Coordinate coordinate2 = new AdventOfCodeUtil.Coordinate(coordinate.x, coordinate.y + 1);
+						if (coordinate2.x >= 0 && coordinate2.x <= 4000000 && coordinate2.y >= 0 && coordinate2.y <= 4000000) {
+							boolean found2 = false;
+							for (AdventOfCodeUtil.Coordinate beacon : sensors) {
+								int distbeacon = beacon.length;
+								int dist = Math.abs((coordinate2.x) - beacon.x) + Math.abs((coordinate2.y) - beacon.y);
+								if (dist <= distbeacon) {
+									found2 = true;
+									break;
+								}
+							}
+							if (!found2) {
+								System.out.println((coordinate2.x * 4000000) + coordinate2.y);
+								throw new Exception();
+							}
+						}
 					}
 				}
 			}
 		}
-
-		System.out.println(cantbe.size() - (int) beacons.stream().filter(coor -> coor.y == 2000000).count());
-
 	}
 
 	public static List<AdventOfCodeUtil.Coordinate> calclosest(AdventOfCodeUtil.Coordinate coordinate, int dist) {
@@ -98,10 +233,10 @@ public class AdventOfCode_2022_15 {
 		AdventOfCodeUtil.Coordinate ytopcoor = new AdventOfCodeUtil.Coordinate(coordinate.x, ytop);
 		AdventOfCodeUtil.Coordinate ybotcoor = new AdventOfCodeUtil.Coordinate(coordinate.x, ybot);
 
-		closestset.addAll(calcLine(xleftcoor, ytopcoor));
-		closestset.addAll(calcLine(ytopcoor, xrightcoor));
-		closestset.addAll(calcLine(xrightcoor, ybotcoor));
-		closestset.addAll(calcLine(ybotcoor, xleftcoor));
+		closestset.addAll(calcLine(xleftcoor, ytopcoor, "leftup"));
+		closestset.addAll(calcLine(ytopcoor, xrightcoor, "rightup"));
+		closestset.addAll(calcLine(xrightcoor, ybotcoor, "rightdown"));
+		closestset.addAll(calcLine(ybotcoor, xleftcoor, "leftdown"));
 
 		return new ArrayList<>(closestset);
 
@@ -109,27 +244,32 @@ public class AdventOfCode_2022_15 {
 
 	}
 
-	public static List<AdventOfCodeUtil.Coordinate> calcLine(AdventOfCodeUtil.Coordinate first, AdventOfCodeUtil.Coordinate second) {
+	public static List<AdventOfCodeUtil.Coordinate> calcLine(AdventOfCodeUtil.Coordinate first, AdventOfCodeUtil.Coordinate second, String number) {
 		List<AdventOfCodeUtil.Coordinate> coordinates = new ArrayList<>();
 		boolean xup = first.x < second.x;
 		boolean yup = first.y < second.y;
+
 
 
 		int dist = Math.abs(first.x - second.x);
 		for (int i = 0; i <= dist; i++) {
 			if (xup && yup) {
 				AdventOfCodeUtil.Coordinate coordinate = new AdventOfCodeUtil.Coordinate(first.x + i, first.y + i);
+				coordinate.number = number;
 				coordinates.add(coordinate);
 			}
 			else if (xup) {
 				AdventOfCodeUtil.Coordinate coordinate = new AdventOfCodeUtil.Coordinate(first.x + i, first.y - i);
+				coordinate.number = number;
 				coordinates.add(coordinate);
 			}
 			else if (yup) {
 				AdventOfCodeUtil.Coordinate coordinate = new AdventOfCodeUtil.Coordinate(first.x - i, first.y + i);
+				coordinate.number = number;
 				coordinates.add(coordinate);
 			} else {
 				AdventOfCodeUtil.Coordinate coordinate = new AdventOfCodeUtil.Coordinate(first.x - i, first.y - i);
+				coordinate.number = number;
 				coordinates.add(coordinate);
 			}
 		}
